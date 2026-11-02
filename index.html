@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<base target="_top">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="theme-color" content="#142B23">
+
+<title>Campus Comedy | Feedback</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+
+--green:#142B23;
+--green2:#176B45;
+--gold:#D9A441;
+--cream:#FFF9EE;
+--white:#FFFFFF;
+--muted:#77847C;
+
+}
+
+
+* {
+
+box-sizing:border-box;
+
+margin:0;
+
+padding:0;
+
+}
+
+
+body {
+
+font-family:'DM Sans',sans-serif;
+
+background:#F3F6F2;
+
+color:var(--green);
+
+}
+
+
+/* INTRO SCREEN */
+
+.intro {
+
+position:fixed;
+
+inset:0;
+
+z-index:1000;
+
+background:
+
+radial-gradient(circle at 80% 15%,#315b40 0%,transparent 35%),
+
+linear-gradient(135deg,#101F19,#173C2B,#101F19);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+color:white;
+
+padding:25px;
+
+transition:opacity .7s ease,visibility .7s ease;
+
+}
+
+
+.intro.hide {
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
+
+}
+
+
+.intro-content {
+
+max-width:550px;
+
+animation:introAppear 1s ease;
+
+}
+
+
+.intro-label {
+
+font-size:11px;
+
+letter-spacing:4px;
+
+color:#E7C477;
+
+font-weight:700;
+
+margin-bottom:25px;
+
+}
+
+
+.intro-title {
+
+font-family:'Playfair Display',serif;
+
+font-size:clamp(42px,10vw,75px);
+
+line-height:1;
+
+font-weight:800;
+
+margin-bottom:12px;
+
+}
+
+
+.intro-title span {
+
+color:#E8B84D;
+
+display:block;
+
+}
+
+
+.intro-sub {
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:#E9E8DF;
+
+margin-top:22px;
+
+}
+
+
+.intro-divider {
+
+width:65px;
+
+height:3px;
+
+background:#D9A441;
+
+margin:22px auto;
+
+}
+
+
+.intro-message {
+
+font-size:14px;
+
+color:#E4EAE4;
+
+line-height:1.8;
+
+}
+
+
+.skip {
+
+position:absolute;
+
+bottom:35px;
+
+right:25px;
+
+background:#FFFFFF15;
+
+border:1px solid #FFFFFF50;
+
+color:white;
+
+padding:11px 17px;
+
+border-radius:30px;
+
+font-size:12px;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+
+.skip:hover {
+
+background:#FFFFFF30;
+
+}
+
+
+.countdown {
+
+margin-top:22px;
+
+font-size:11px;
+
+color:#D8C18C;
+
+letter-spacing:2px;
+
+}
+
+
+@keyframes introAppear {
+
+from {
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* MAIN PAGE */
+
+.container {
+
+max-width:700px;
+
+margin:auto;
+
+padding:20px 14px 50px;
+
+}
+
+
+.hero {
+
+background:linear-gradient(135deg,#142B23,#236342);
+
+padding:27px 23px;
+
+border-radius:22px;
+
+color:white;
+
+position:relative;
+
+overflow:hidden;
+
+margin-bottom:17px;
+
+}
+
+
+.hero:after {
+
+content:"";
+
+position:absolute;
+
+width:180px;
+
+height:180px;
+
+border:1px solid #FFFFFF20;
+
+border-radius:50%;
+
+right:-75px;
+
+top:-75px;
+
+}
+
+
+.hero-small {
+
+font-size:10px;
+
+letter-spacing:3px;
+
+color:#E5C16E;
+
+font-weight:800;
+
+}
+
+
+.hero h1 {
+
+font-family:'Playfair Display',serif;
+
+font-size:35px;
+
+line-height:1.1;
+
+margin:13px 0;
+
+}
+
+
+.hero h1 span {
+
+color:#F0C45F;
+
+}
+
+
+.hero p {
+
+font-size:13px;
+
+line-height:1.7;
+
+color:#E1EAE3;
+
+max-width:520px;
+
+}
+
+
+.event-info {
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:8px;
+
+margin-top:18px;
+
+}
+
+
+.event-info span {
+
+background:#FFFFFF15;
+
+border:1px solid #FFFFFF25;
+
+padding:8px 11px;
+
+border-radius:30px;
+
+font-size:10px;
+
+font-weight:700;
+
+}
+
+
+/* PROGRESS */
+
+.progress-box {
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+margin:18px 3px;
+
+font-size:11px;
+
+font-weight:700;
+
+color:#6B7B70;
+
+}
+
+
+.progress {
+
+height:6px;
+
+flex:1;
+
+background:#DDE7DF;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+
+.progress-fill {
+
+height:100%;
+
+width:0;
+
+background:linear-gradient(90deg,#176B45,#D9A441);
+
+transition:.3s;
+
+}
+
+
+/* FORM CARD */
+
+.form-card {
+
+background:white;
+
+border:1px solid #E5ECE6;
+
+border-radius:19px;
+
+padding:23px;
+
+margin-bottom:14px;
+
+box-shadow:0 6px 22px #142B2308;
+
+animation:cardAppear .4s ease;
+
+}
+
+
+@keyframes cardAppear {
+
+from {
+
+opacity:0;
+
+transform:translateY(10px);
+
+}
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+.question-number {
+
+font-size:10px;
+
+font-weight:800;
+
+color:#A17B34;
+
+letter-spacing:2px;
+
+margin-bottom:9px;
+
+}
+
+
+.question {
+
+font-size:17px;
+
+font-weight:800;
+
+margin-bottom:7px;
+
+}
+
+
+.description {
+
+font-size:12px;
+
+color:var(--muted);
+
+line-height:1.6;
+
+margin-bottom:18px;
+
+}
+
+
+.options {
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:9px;
+
+}
+
+
+.option {
+
+position:relative;
+
+}
+
+
+.option input {
+
+position:absolute;
+
+opacity:0;
+
+}
+
+
+.option label {
+
+display:flex;
+
+align-items:center;
+
+gap:9px;
+
+padding:13px;
+
+border:1px solid #E3EAE4;
+
+border-radius:12px;
+
+font-size:12px;
+
+line-height:1.4;
+
+cursor:pointer;
+
+min-height:48px;
+
+transition:.2s;
+
+}
+
+
+.option label:before {
+
+content:"";
+
+width:14px;
+
+height:14px;
+
+border:1.5px solid #B9C7BC;
+
+border-radius:50%;
+
+flex-shrink:0;
+
+}
+
+
+.option input[type=checkbox]+label:before {
+
+border-radius:4px;
+
+}
+
+
+.option input:checked+label {
+
+background:#EDF7EF;
+
+border-color:#3A9661;
+
+color:#176B45;
+
+font-weight:700;
+
+}
+
+
+.option input:checked+label:before {
+
+background:#176B45;
+
+border-color:#176B45;
+
+box-shadow:inset 0 0 0 3px #EDF7EF;
+
+}
+
+
+/* INPUTS */
+
+input[type=text],
+
+select,
+
+textarea {
+
+width:100%;
+
+padding:13px;
+
+border:1px solid #DFE7E0;
+
+border-radius:11px;
+
+font-family:inherit;
+
+font-size:13px;
+
+outline:none;
+
+background:#FCFDFC;
+
+color:var(--green);
+
+}
+
+
+input:focus,
+
+select:focus,
+
+textarea:focus {
+
+border-color:#3B9661;
+
+box-shadow:0 0 0 3px #3B966115;
+
+}
+
+
+textarea {
+
+min-height:85px;
+
+resize:vertical;
+
+}
+
+
+.input-label {
+
+font-size:12px;
+
+font-weight:700;
+
+display:block;
+
+margin-bottom:9px;
+
+}
+
+
+.field {
+
+margin-bottom:17px;
+
+}
+
+
+.field:last-child {
+
+margin-bottom:0;
+
+}
+
+
+/* RATING */
+
+.rating {
+
+display:flex;
+
+gap:9px;
+
+flex-wrap:wrap;
+
+}
+
+
+.rating input {
+
+position:absolute;
+
+opacity:0;
+
+}
+
+
+.rating label {
+
+width:39px;
+
+height:39px;
+
+border:1px solid #E0E8E1;
+
+border-radius:10px;
+
+display:grid;
+
+place-items:center;
+
+font-size:13px;
+
+font-weight:800;
+
+cursor:pointer;
+
+}
+
+
+.rating input:checked+label {
+
+background:#176B45;
+
+color:white;
+
+border-color:#176B45;
+
+}
+
+
+/* CONDITIONAL QUESTIONS */
+
+.hidden {
+
+display:none;
+
+}
+
+
+.section-title {
+
+font-size:13px;
+
+font-weight:800;
+
+color:#176B45;
+
+margin-bottom:12px;
+
+}
+
+
+/* SUBMIT */
+
+.consent {
+
+display:flex;
+
+gap:9px;
+
+font-size:11px;
+
+color:#65756A;
+
+line-height:1.6;
+
+margin:17px 0;
+
+}
+
+
+.consent input {
+
+accent-color:#176B45;
+
+margin-top:3px;
+
+}
+
+
+.submit-btn {
+
+width:100%;
+
+border:0;
+
+padding:16px;
+
+border-radius:13px;
+
+background:linear-gradient(100deg,#176B45,#238553);
+
+color:white;
+
+font-size:14px;
+
+font-weight:800;
+
+font-family:inherit;
+
+cursor:pointer;
+
+box-shadow:0 8px 20px #176B4530;
+
+}
+
+
+.submit-btn:disabled {
+
+opacity:.6;
+
+cursor:wait;
+
+}
+
+
+/* SUCCESS */
+
+.success-screen {
+
+display:none;
+
+text-align:center;
+
+background:white;
+
+padding:40px 23px;
+
+border-radius:20px;
+
+border:1px solid #E5ECE6;
+
+}
+
+
+.success-icon {
+
+width:65px;
+
+height:65px;
+
+background:#E7F5EA;
+
+color:#176B45;
+
+border-radius:50%;
+
+display:grid;
+
+place-items:center;
+
+font-size:30px;
+
+margin:0 auto 20px;
+
+}
+
+
+.success-screen h2 {
+
+font-family:'Playfair Display',serif;
+
+font-size:28px;
+
+margin-bottom:12px;
+
+}
+
+
+.success-screen p {
+
+font-size:13px;
+
+color:#718077;
+
+line-height:1.8;
+
+}
+
+
+.message {
+
+display:none;
+
+padding:13px;
+
+border-radius:11px;
+
+font-size:12px;
+
+margin-bottom:12px;
+
+}
+
+
+.error {
+
+background:#FFF0ED;
+
+color:#A33B2A;
+
+}
+
+
+.footer {
+
+text-align:center;
+
+font-size:10px;
+
+color:#859187;
+
+line-height:1.8;
+
+margin-top:22px;
+
+}
+
+
+@media(max-width:520px) {
+
+.container {
+
+padding:12px 10px 35px;
+
+}
+
+.hero {
+
+padding:23px 19px;
+
+}
+
+.hero h1 {
+
+font-size:31px;
+
+}
+
+.form-card {
+
+padding:19px 16px;
+
+}
+
+.options {
+
+grid-template-columns:1fr;
+
+}
+
+.intro-title {
+
+font-size:48px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- WELCOME INTRO -->
+
+<div class="intro" id="intro">
+
+
+<div class="intro-content">
+
+
+<div class="intro-label">
+
+UDS · CAMPUS EXPERIENCE · 2026
+
+</div>
+
+
+<div class="intro-title">
+
+THE BIGGEST
+
+<span>CAMPUS COMEDY</span>
+
+</div>
+
+
+<div class="intro-divider"></div>
+
+
+<div class="intro-message">
+
+Big laughs. Live music. Unforgettable memories.
+
+<br>
+
+Before the show, we want to hear from YOU.
+
+</div>
+
+
+<div class="intro-sub">
+
+YOUR VOICE. OUR EXPERIENCE.
+
+</div>
+
+
+<div class="countdown" id="countdown">
+
+GETTING THINGS READY · 5
+
+</div>
+
+
+</div>
+
+
+<button class="skip" onclick="skipIntro()">
+
+SKIP INTRO →
+
+</button>
+
+
+</div>
+
+
+
+
+<!-- MAIN WEBSITE -->
+
+<div class="container" id="mainPage" style="display:none;">
+
+
+
+<header class="hero">
+
+
+<div class="hero-small">
+
+THE BIGGEST CAMPUS COMEDY · 2026
+
+</div>
+
+
+<h1>
+
+Help us make<br>
+
+<span>history.</span>
+
+</h1>
+
+
+<p>
+
+We want to give you an unforgettable comedy experience.
+
+Whether you're attending, undecided or not coming, tell us why.
+
+Your honest feedback matters.
+
+</p>
+
+
+<div class="event-info">
+
+<span>27 NOV TAMALE</span>
+
+<span>28 NOV NYANKPALA</span>
+
+<span>3 MINUTES</span>
+
+</div>
+
+
+</header>
+
+
+
+
+<div class="progress-box">
+
+<span>YOUR FEEDBACK</span>
+
+<div class="progress">
+
+<div class="progress-fill" id="progressFill"></div>
+
+</div>
+
+<span id="progressText">0%</span>
+
+</div>
+
+
+
+
+<form id="feedbackForm">
+
+
+
+<!-- QUESTION 1 -->
+
+<section class="form-card">
+
+
+<div class="question-number">QUESTION 01</div>
+
+
+<div class="question">
+
+Are you coming to the show?
+
+</div>
+
+
+<div class="description">
+
+Be honest. We want to understand your decision.
+
+</div>
+
+
+<div class="options">
+
+
+<div class="option">
+
+<input type="radio" name="status" id="s1" value="Already registered">
+
+<label for="s1">I've already registered</label>
+
+</div>
+
+
+<div class="option">
+
+<input type="radio" name="status" id="s2" value="Planning to attend">
+
+<label for="s2">I'm planning to attend</label>
+
+</div>
+
+
+<div class="option">
+
+<input type="radio" name="status" id="s3" value="Undecided">
+
+<label for="s3">I'm still undecided</label>
+
+</div>
+
+
+<div class="option">
+
+<input type="radio" name="status" id="s4" value="Not attending">
+
+<label for="s4">I'm not attending</label>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- QUESTION 2 -->
+
+<section class="form-card" id="barrierSection">
+
+
+<div class="question-number">QUESTION 02</div>
+
+
+<div class="question">
+
+What's stopping you from registering?
+
+</div>
+
+
+<div class="description">
+
+Choose the main reason. Your answer will help us improve.
+
+</div>
+
+
+<div class="options">
+
+
+<div class="option"><input type="radio" name="reason" id="r1" value="Ticket prices are expensive"><label for="r1">Ticket prices are expensive</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r2" value="Waiting to get money"><label for="r2">I'm waiting to get money</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r3" value="Not enough information"><label for="r3">I need more information</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r4" value="Not convinced about value"><label for="r4">Not convinced it's worth the price</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r5" value="Date is inconvenient"><label for="r5">The date is inconvenient</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r6" value="Transport or location"><label for="r6">Transport / location is a challenge</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r7" value="Performers do not interest me"><label for="r7">The lineup doesn't interest me</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r8" value="Waiting for friends"><label for="r8">I'm waiting for my friends</label></div>
+
+<div class="option"><input type="radio" name="reason" id="r9" value="Other reasons"><label for="r9">Other reasons</label></div>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- QUESTION 3 -->
+
+<section class="form-card" id="priceSection">
+
+
+<div class="question-number">QUESTION 03</div>
+
+
+<div class="question">
+
+Let's talk about ticket prices.
+
+</div>
+
+
+<div class="description">
+
+What is your honest opinion about our ticket prices?
+
+</div>
+
+
+<div class="options">
+
+
+<div class="option"><input type="radio" name="priceOpinion" id="p1" value="Very affordable"><label for="p1">Very affordable</label></div>
+
+<div class="option"><input type="radio" name="priceOpinion" id="p2" value="Fairly affordable"><label for="p2">Fairly affordable</label></div>
+
+<div class="option"><input type="radio" name="priceOpinion" id="p3" value="A little expensive"><label for="p3">A little expensive</label></div>
+
+<div class="option"><input type="radio" name="priceOpinion" id="p4" value="Too expensive for a student"><label for="p4">Too expensive for a student</label></div>
+
+<div class="option"><input type="radio" name="priceOpinion" id="p5" value="Not sure"><label for="p5">I haven't decided</label></div>
+
+</div>
+
+
+<div class="field" style="margin-top:18px;">
+
+<label class="input-label" for="affordablePrice">
+
+What price would you comfortably pay?
+
+</label>
+
+
+<select id="affordablePrice">
+
+<option value="">Select your preferred price</option>
+
+<option>GHS 50 or less</option>
+
+<option>GHS 51–70</option>
+
+<option>GHS 71–100</option>
+
+<option>GHS 101–150</option>
+
+<option>GHS 151–250</option>
+
+<option>Current ticket prices are fine</option>
+
+</select>
+
+</div>
+
+</section>
+
+
+
+
+<!-- QUESTION 4 -->
+
+<section class="form-card hidden" id="expectationSection">
+
+
+<div class="question-number">QUESTION 04</div>
+
+
+<div class="question">
+
+What are you expecting from the show?
+
+</div>
+
+
+<div class="description">
+
+Select everything you would love to experience.
+
+</div>
+
+
+<div class="options">
+
+
+<div class="option"><input type="checkbox" name="expectations" id="e1" value="Non-stop comedy"><label for="e1">Non-stop comedy and laughter</label></div>
+
+<div class="option"><input type="checkbox" name="expectations" id="e2" value="Amazing comedian performances"><label for="e2">Amazing comedian performances</label></div>
+
+<div class="option"><input type="checkbox" name="expectations" id="e3" value="Live music"><label for="e3">Live music experience</label></div>
+
+<div class="option"><input type="checkbox" name="expectations" id="e4" value="Great atmosphere"><label for="e4">A great atmosphere</label></div>
+
+<div class="option"><input type="checkbox" name="expectations" id="e5" value="Fun with friends"><label for="e5">Fun with friends</label></div>
+
+<div class="option"><input type="checkbox" name="expectations" id="e6" value="Excellent organisation"><label for="e6">Excellent organisation and sound</label></div>
+
+<div class="option"><input type="checkbox" name="expectations" id="e7" value="Unforgettable experience"><label for="e7">An unforgettable experience</label></div>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- QUESTION 5 -->
+
+<section class="form-card hidden" id="campusSection">
+
+
+<div class="question-number">QUESTION 05</div>
+
+
+<div class="question">
+
+Which show would you attend?
+
+</div>
+
+
+<div class="options">
+
+
+<div class="option"><input type="radio" name="campus" id="c1" value="Tamale — 27 November"><label for="c1">Tamale · 27 November</label></div>
+
+<div class="option"><input type="radio" name="campus" id="c2" value="Nyankpala — 28 November"><label for="c2">Nyankpala · 28 November</label></div>
+
+<div class="option"><input type="radio" name="campus" id="c3" value="Both / Either"><label for="c3">Both / Either one</label></div>
+
+</div>
+
+
+<div class="field" style="margin-top:17px;">
+
+<label class="input-label" for="ticket">
+
+Which ticket are you considering?
+
+</label>
+
+
+<select id="ticket">
+
+<option value="">Select ticket category</option>
+
+<option>Early Bird — GHS 70</option>
+
+<option>Regular — GHS 100</option>
+
+<option>At the Gate — GHS 150</option>
+
+<option>VIP — GHS 250</option>
+
+</select>
+
+</div>
+
+</section>
+
+
+
+
+<!-- QUESTION 6 -->
+
+<section class="form-card">
+
+
+<div class="question-number">QUESTION 06</div>
+
+
+<div class="question">
+
+How did you hear about the show?
+
+</div>
+
+
+<div class="options">
+
+
+<div class="option"><input type="radio" name="discovery" id="d1" value="WhatsApp"><label for="d1">WhatsApp</label></div>
+
+<div class="option"><input type="radio" name="discovery" id="d2" value="Instagram"><label for="d2">Instagram</label></div>
+
+<div class="option"><input type="radio" name="discovery" id="d3" value="TikTok"><label for="d3">TikTok</label></div>
+
+<div class="option"><input type="radio" name="discovery" id="d4" value="Friends"><label for="d4">Friends / classmates</label></div>
+
+<div class="option"><input type="radio" name="discovery" id="d5" value="Campus announcements"><label for="d5">Campus announcements</label></div>
+
+<div class="option"><input type="radio" name="discovery" id="d6" value="Posters"><label for="d6">Posters / flyers</label></div>
+
+<div class="option"><input type="radio" name="discovery" id="d7" value="Other"><label for="d7">Other</label></div>
+
+</div>
+
+</section>
+
+
+
+
+<!-- QUESTION 7 -->
+
+<section class="form-card">
+
+
+<div class="question-number">QUESTION 07</div>
+
+
+<div class="question">
+
+How interested are you in this show?
+
+</div>
+
+
+<div class="description">
+
+1 means not interested. 5 means extremely interested.
+
+</div>
+
+
+<div class="rating">
+
+
+<div><input type="radio" name="interest" id="i1" value="1"><label for="i1">1</label></div>
+
+<div><input type="radio" name="interest" id="i2" value="2"><label for="i2">2</label></div>
+
+<div><input type="radio" name="interest" id="i3" value="3"><label for="i3">3</label></div>
+
+<div><input type="radio" name="interest" id="i4" value="4"><label for="i4">4</label></div>
+
+<div><input type="radio" name="interest" id="i5" value="5"><label for="i5">5</label></div>
+
+</div>
+
+</section>
+
+
+
+
+<!-- SUGGESTIONS -->
+
+<section class="form-card">
+
+
+<div class="question-number">LAST QUESTION</div>
+
+
+<div class="question">
+
+What would make this event even better?
+
+</div>
+
+
+<div class="description">
+
+Any suggestions, concerns or ideas? We'd love to hear them.
+
+</div>
+
+
+<textarea id="suggestions" placeholder="Share your thoughts here..."></textarea>
+
+
+<div class="field" style="margin-top:16px;">
+
+<label class="input-label" for="name">
+
+Your name (Optional)
+
+</label>
+
+<input type="text" id="name" placeholder="Enter your name">
+
+</div>
+
+
+<div class="field">
+
+<label class="input-label" for="contact">
+
+Phone number / Email (Optional)
+
+</label>
+
+<input type="text" id="contact" placeholder="Enter contact details">
+
+</div>
+
+
+<label class="consent">
+
+<input type="checkbox" id="consent">
+
+<span>
+
+I agree that my responses may be used by the organising team for event planning and audience research.
+
+</span>
+
+</label>
+
+
+</section>
+
+
+
+
+<div class="message error" id="errorBox"></div>
+
+
+<button type="submit" class="submit-btn" id="submitBtn">
+
+SUBMIT MY FEEDBACK →
+
+</button>
+
+
+
+</form>
+
+
+
+
+<!-- SUCCESS SCREEN -->
+
+<div class="success-screen" id="successScreen">
+
+
+<div class="success-icon">✓</div>
+
+
+<h2>You're amazing!</h2>
+
+
+<p>
+
+Thank you for taking the time to share your thoughts.
+
+Your feedback will help us make
+
+<b>The Biggest Campus Comedy</b>
+
+an unforgettable experience.
+
+<br><br>
+
+We hope to see you there!
+
+</p>
+
+
+</div>
+
+
+
+<div class="footer">
+
+THE BIGGEST CAMPUS COMEDY · 2026
+
+<br>
+
+27 NOVEMBER · TAMALE
+
+<br>
+
+28 NOVEMBER · NYANKPALA
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+/****************************************************
+ WELCOME INTRO
+****************************************************/
+
+let introTimer;
+
+let seconds=5;
+
+
+function skipIntro() {
+
+clearInterval(introTimer);
+
+document.getElementById("intro").classList.add("hide");
+
+document.getElementById("mainPage").style.display="block";
+
+}
+
+
+introTimer=setInterval(()=>{
+
+seconds--;
+
+
+if(seconds<=0){
+
+skipIntro();
+
+}else{
+
+document.getElementById("countdown").textContent=
+
+"GETTING THINGS READY · "+seconds;
+
+}
+
+},1000);
+
+
+
+/****************************************************
+ CONDITIONAL QUESTIONS
+****************************************************/
+
+const statusInputs=document.querySelectorAll(
+
+'input[name="status"]'
+
+);
+
+
+function updateQuestions(){
+
+const status=document.querySelector(
+
+'input[name="status"]:checked'
+
+)?.value;
+
+
+const barrier=document.getElementById("barrierSection");
+
+const price=document.getElementById("priceSection");
+
+const expectation=document.getElementById("expectationSection");
+
+const campus=document.getElementById("campusSection");
+
+
+const attending=
+
+status==="Already registered" ||
+
+status==="Planning to attend";
+
+
+const notAttending=
+
+status==="Not attending" ||
+
+status==="Undecided";
+
+
+barrier.classList.toggle("hidden",!notAttending);
+
+price.classList.toggle("hidden",!notAttending);
+
+expectation.classList.toggle("hidden",!attending);
+
+campus.classList.toggle("hidden",!attending);
+
+
+updateProgress();
+
+}
+
+
+statusInputs.forEach(input=>{
+
+input.addEventListener("change",updateQuestions);
+
+});
+
+
+
+/****************************************************
+ PROGRESS INDICATOR
+****************************************************/
+
+function updateProgress(){
+
+const status=!!document.querySelector(
+
+'input[name="status"]:checked'
+
+);
+
+
+const interest=!!document.querySelector(
+
+'input[name="interest"]:checked'
+
+);
+
+
+const consent=document.getElementById("consent").checked;
+
+
+let completed=0;
+
+
+if(status) completed++;
+
+if(interest) completed++;
+
+if(consent) completed++;
+
+
+const percent=Math.round((completed/3)*100);
+
+
+document.getElementById("progressFill").style.width=
+
+percent+"%";
+
+
+document.getElementById("progressText").textContent=
+
+percent+"%";
+
+}
+
+
+document.querySelectorAll("input,select,textarea").forEach(el=>{
+
+el.addEventListener("change",updateProgress);
+
+el.addEventListener("input",updateProgress);
+
+});
+
+
+
+/****************************************************
+ COLLECT SELECTED CHECKBOXES
+****************************************************/
+
+function getChecked(name){
+
+return [...document.querySelectorAll(
+
+`input[name="${name}"]:checked`
+
+)].map(el=>el.value);
+
+}
+
+
+function getRadio(name){
+
+return document.querySelector(
+
+`input[name="${name}"]:checked`
+
+)?.value || "";
+
+}
+
+
+
+/****************************************************
+ SUBMIT
+****************************************************/
+
+document.getElementById("feedbackForm")
+
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+
+const data={
+
+status:getRadio("status"),
+
+reason:getRadio("reason"),
+
+priceOpinion:getRadio("priceOpinion"),
+
+affordablePrice:document.getElementById("affordablePrice").value,
+
+expectations:getChecked("expectations"),
+
+campus:getRadio("campus"),
+
+ticket:document.getElementById("ticket").value,
+
+discovery:getRadio("discovery"),
+
+interest:getRadio("interest"),
+
+suggestions:document.getElementById("suggestions").value,
+
+name:document.getElementById("name").value,
+
+contact:document.getElementById("contact").value,
+
+consent:document.getElementById("consent").checked,
+
+website:""
+
+};
+
+
+const error=document.getElementById("errorBox");
+
+
+error.style.display="none";
+
+
+if(!data.status){
+
+showError("Please select your attendance decision.");
+
+return;
+
+}
+
+
+if(!data.interest){
+
+showError("Please rate your interest in the event.");
+
+return;
+
+}
+
+
+if(!data.consent){
+
+showError("Please agree before submitting your feedback.");
+
+return;
+
+}
+
+
+if(data.status==="Not attending" && !data.reason){
+
+showError("Please tell us why you are not attending.");
+
+return;
+
+}
+
+
+if(data.status==="Undecided" && !data.reason){
+
+showError("Please tell us what is making you undecided.");
+
+return;
+
+}
+
+
+const btn=document.getElementById("submitBtn");
+
+
+btn.disabled=true;
+
+btn.textContent="SUBMITTING...";
+
+
+google.script.run
+
+.withSuccessHandler(function(result){
+
+btn.disabled=false;
+
+
+document.getElementById("feedbackForm").style.display="none";
+
+
+document.getElementById("progressFill").style.width="100%";
+
+
+document.getElementById("successScreen").style.display="block";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+})
+
+
+.withFailureHandler(function(error){
+
+btn.disabled=false;
+
+btn.textContent="SUBMIT MY FEEDBACK →";
+
+showError(error.message || "Something went wrong. Please try again.");
+
+})
+
+
+.submitFeedback(data);
+
+
+});
+
+
+
+function showError(message){
+
+const box=document.getElementById("errorBox");
+
+box.textContent=message;
+
+box.style.display="block";
+
+box.scrollIntoView({
+
+behavior:"smooth",
+
+block:"center"
+
+});
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

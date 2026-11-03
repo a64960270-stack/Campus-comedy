@@ -9,967 +9,746 @@
 
 <meta name="theme-color" content="#142B23">
 
-<title>Campus Comedy | Feedback</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-
+<title>The Biggest Campus Comedy</title>
 
 <style>
 
+/******************** DESIGN SYSTEM ********************/
+
 :root {
 
---green:#142B23;
---green2:#176B45;
---gold:#D9A441;
---cream:#FFF9EE;
---white:#FFFFFF;
---muted:#77847C;
+  --green:#142B23;
+  --green2:#176B45;
+  --gold:#D9A441;
+  --cream:#FFF9EE;
+  --white:#FFFFFF;
+  --muted:#77847C;
 
 }
-
 
 * {
 
-box-sizing:border-box;
-
-margin:0;
-
-padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 
 }
-
 
 body {
 
-font-family:'DM Sans',sans-serif;
-
-background:#F3F6F2;
-
-color:var(--green);
+  font-family:Arial,Helvetica,sans-serif;
+  background:#F3F6F2;
+  color:var(--green);
 
 }
 
 
-/* INTRO SCREEN */
+/******************** WELCOME INTRO ********************/
 
 .intro {
 
-position:fixed;
+  position:fixed;
+  inset:0;
+  z-index:1000;
 
-inset:0;
+  background:
+    radial-gradient(circle at 80% 15%,#315B40 0%,transparent 35%),
+    linear-gradient(135deg,#101F19,#173C2B,#101F19);
 
-z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 
-background:
+  color:white;
+  padding:25px;
 
-radial-gradient(circle at 80% 15%,#315b40 0%,transparent 35%),
-
-linear-gradient(135deg,#101F19,#173C2B,#101F19);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-color:white;
-
-padding:25px;
-
-transition:opacity .7s ease,visibility .7s ease;
+  transition:opacity .5s,visibility .5s;
 
 }
-
 
 .intro.hide {
 
-opacity:0;
-
-visibility:hidden;
-
-pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 
 }
-
 
 .intro-content {
 
-max-width:550px;
-
-animation:introAppear 1s ease;
+  max-width:550px;
+  animation:appear 1s ease;
 
 }
-
 
 .intro-label {
 
-font-size:11px;
-
-letter-spacing:4px;
-
-color:#E7C477;
-
-font-weight:700;
-
-margin-bottom:25px;
+  font-size:11px;
+  letter-spacing:4px;
+  color:#E7C477;
+  font-weight:bold;
+  margin-bottom:25px;
 
 }
-
 
 .intro-title {
 
-font-family:'Playfair Display',serif;
-
-font-size:clamp(42px,10vw,75px);
-
-line-height:1;
-
-font-weight:800;
-
-margin-bottom:12px;
+  font-family:Georgia,serif;
+  font-size:clamp(42px,10vw,75px);
+  line-height:1;
+  font-weight:bold;
 
 }
-
 
 .intro-title span {
 
-color:#E8B84D;
-
-display:block;
-
-}
-
-
-.intro-sub {
-
-font-size:13px;
-
-letter-spacing:2px;
-
-color:#E9E8DF;
-
-margin-top:22px;
+  color:#E8B84D;
+  display:block;
 
 }
-
 
 .intro-divider {
 
-width:65px;
-
-height:3px;
-
-background:#D9A441;
-
-margin:22px auto;
+  width:65px;
+  height:3px;
+  background:var(--gold);
+  margin:23px auto;
 
 }
-
 
 .intro-message {
 
-font-size:14px;
-
-color:#E4EAE4;
-
-line-height:1.8;
+  font-size:14px;
+  color:#E4EAE4;
+  line-height:1.8;
 
 }
 
+.intro-sub {
 
-.skip {
-
-position:absolute;
-
-bottom:35px;
-
-right:25px;
-
-background:#FFFFFF15;
-
-border:1px solid #FFFFFF50;
-
-color:white;
-
-padding:11px 17px;
-
-border-radius:30px;
-
-font-size:12px;
-
-font-weight:700;
-
-cursor:pointer;
+  font-size:11px;
+  letter-spacing:3px;
+  color:#E8C36F;
+  margin-top:22px;
 
 }
-
-
-.skip:hover {
-
-background:#FFFFFF30;
-
-}
-
 
 .countdown {
 
-margin-top:22px;
+  margin-top:22px;
+  font-size:11px;
+  letter-spacing:2px;
+  color:#D8C18C;
 
-font-size:11px;
+}
 
-color:#D8C18C;
+.skip {
 
-letter-spacing:2px;
+  position:absolute;
+  bottom:30px;
+  right:22px;
+
+  background:#FFFFFF15;
+  border:1px solid #FFFFFF50;
+  color:white;
+
+  padding:12px 18px;
+  border-radius:30px;
+
+  font-size:12px;
+  font-weight:bold;
+  cursor:pointer;
+
+}
+
+@keyframes appear {
+
+  from {
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
 
 }
 
 
-@keyframes introAppear {
-
-from {
-
-opacity:0;
-
-transform:translateY(20px);
-
-}
-
-to {
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-/* MAIN PAGE */
+/******************** MAIN CONTAINER ********************/
 
 .container {
 
-max-width:700px;
-
-margin:auto;
-
-padding:20px 14px 50px;
+  max-width:700px;
+  margin:auto;
+  padding:20px 14px 45px;
 
 }
 
+
+/******************** HERO SECTION ********************/
 
 .hero {
 
-background:linear-gradient(135deg,#142B23,#236342);
+  background:linear-gradient(135deg,#142B23,#236342);
 
-padding:27px 23px;
+  padding:28px 23px;
+  border-radius:22px;
 
-border-radius:22px;
+  color:white;
+  position:relative;
+  overflow:hidden;
 
-color:white;
-
-position:relative;
-
-overflow:hidden;
-
-margin-bottom:17px;
+  margin-bottom:17px;
 
 }
-
 
 .hero:after {
 
-content:"";
+  content:"";
+  position:absolute;
 
-position:absolute;
+  width:180px;
+  height:180px;
 
-width:180px;
+  border:1px solid #FFFFFF20;
+  border-radius:50%;
 
-height:180px;
-
-border:1px solid #FFFFFF20;
-
-border-radius:50%;
-
-right:-75px;
-
-top:-75px;
+  right:-75px;
+  top:-75px;
 
 }
-
 
 .hero-small {
 
-font-size:10px;
-
-letter-spacing:3px;
-
-color:#E5C16E;
-
-font-weight:800;
+  font-size:10px;
+  letter-spacing:3px;
+  color:#E5C16E;
+  font-weight:bold;
 
 }
-
 
 .hero h1 {
 
-font-family:'Playfair Display',serif;
+  font-family:Georgia,serif;
+  font-size:36px;
+  line-height:1.1;
 
-font-size:35px;
-
-line-height:1.1;
-
-margin:13px 0;
+  margin:14px 0;
 
 }
-
 
 .hero h1 span {
 
-color:#F0C45F;
+  color:#F0C45F;
 
 }
-
 
 .hero p {
 
-font-size:13px;
-
-line-height:1.7;
-
-color:#E1EAE3;
-
-max-width:520px;
+  font-size:13px;
+  line-height:1.8;
+  color:#E1EAE3;
 
 }
-
 
 .event-info {
 
-display:flex;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
 
-flex-wrap:wrap;
-
-gap:8px;
-
-margin-top:18px;
+  margin-top:18px;
 
 }
-
 
 .event-info span {
 
-background:#FFFFFF15;
+  background:#FFFFFF15;
+  border:1px solid #FFFFFF25;
 
-border:1px solid #FFFFFF25;
+  padding:9px 11px;
+  border-radius:30px;
 
-padding:8px 11px;
-
-border-radius:30px;
-
-font-size:10px;
-
-font-weight:700;
+  font-size:10px;
+  font-weight:bold;
 
 }
 
 
-/* PROGRESS */
+/******************** PROGRESS BAR ********************/
 
 .progress-box {
 
-display:flex;
+  display:flex;
+  align-items:center;
+  gap:10px;
 
-align-items:center;
+  margin:18px 3px;
 
-gap:10px;
-
-margin:18px 3px;
-
-font-size:11px;
-
-font-weight:700;
-
-color:#6B7B70;
+  font-size:11px;
+  font-weight:bold;
+  color:#6B7B70;
 
 }
-
 
 .progress {
 
-height:6px;
+  height:6px;
+  flex:1;
 
-flex:1;
-
-background:#DDE7DF;
-
-border-radius:20px;
-
-overflow:hidden;
+  background:#DDE7DF;
+  border-radius:20px;
+  overflow:hidden;
 
 }
-
 
 .progress-fill {
 
-height:100%;
+  height:100%;
+  width:0;
 
-width:0;
+  background:linear-gradient(90deg,#176B45,#D9A441);
 
-background:linear-gradient(90deg,#176B45,#D9A441);
-
-transition:.3s;
+  transition:width .3s;
 
 }
 
 
-/* FORM CARD */
+/******************** QUESTION CARDS ********************/
 
 .form-card {
 
-background:white;
+  background:white;
 
-border:1px solid #E5ECE6;
+  border:1px solid #E5ECE6;
+  border-radius:19px;
 
-border-radius:19px;
+  padding:23px;
+  margin-bottom:14px;
 
-padding:23px;
+  box-shadow:0 6px 22px #142B2308;
 
-margin-bottom:14px;
-
-box-shadow:0 6px 22px #142B2308;
-
-animation:cardAppear .4s ease;
+  animation:appear .3s ease;
 
 }
-
-
-@keyframes cardAppear {
-
-from {
-
-opacity:0;
-
-transform:translateY(10px);
-
-}
-
-to {
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
 
 .question-number {
 
-font-size:10px;
+  font-size:10px;
+  font-weight:bold;
 
-font-weight:800;
+  color:#A17B34;
+  letter-spacing:2px;
 
-color:#A17B34;
-
-letter-spacing:2px;
-
-margin-bottom:9px;
+  margin-bottom:10px;
 
 }
-
 
 .question {
 
-font-size:17px;
+  font-size:17px;
+  font-weight:bold;
 
-font-weight:800;
-
-margin-bottom:7px;
+  margin-bottom:8px;
 
 }
-
 
 .description {
 
-font-size:12px;
+  font-size:12px;
+  color:var(--muted);
 
-color:var(--muted);
-
-line-height:1.6;
-
-margin-bottom:18px;
+  line-height:1.7;
+  margin-bottom:18px;
 
 }
 
+
+/******************** OPTIONS ********************/
 
 .options {
 
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:9px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
 
 }
-
 
 .option {
 
-position:relative;
+  position:relative;
 
 }
-
 
 .option input {
 
-position:absolute;
-
-opacity:0;
+  position:absolute;
+  opacity:0;
 
 }
-
 
 .option label {
 
-display:flex;
+  display:flex;
+  align-items:center;
+  gap:9px;
 
-align-items:center;
+  padding:13px;
 
-gap:9px;
+  border:1px solid #E3EAE4;
+  border-radius:12px;
 
-padding:13px;
+  font-size:12px;
+  line-height:1.5;
 
-border:1px solid #E3EAE4;
+  min-height:48px;
 
-border-radius:12px;
+  cursor:pointer;
 
-font-size:12px;
-
-line-height:1.4;
-
-cursor:pointer;
-
-min-height:48px;
-
-transition:.2s;
+  transition:.15s;
 
 }
-
 
 .option label:before {
 
-content:"";
+  content:"";
 
-width:14px;
+  width:14px;
+  height:14px;
 
-height:14px;
+  border:1.5px solid #B9C7BC;
+  border-radius:50%;
 
-border:1.5px solid #B9C7BC;
-
-border-radius:50%;
-
-flex-shrink:0;
+  flex-shrink:0;
 
 }
-
 
 .option input[type=checkbox]+label:before {
 
-border-radius:4px;
+  border-radius:4px;
 
 }
-
 
 .option input:checked+label {
 
-background:#EDF7EF;
+  background:#EDF7EF;
+  border-color:#3A9661;
+  color:#176B45;
 
-border-color:#3A9661;
-
-color:#176B45;
-
-font-weight:700;
+  font-weight:bold;
 
 }
-
 
 .option input:checked+label:before {
 
-background:#176B45;
+  background:#176B45;
+  border-color:#176B45;
 
-border-color:#176B45;
-
-box-shadow:inset 0 0 0 3px #EDF7EF;
+  box-shadow:inset 0 0 0 3px #EDF7EF;
 
 }
 
 
-/* INPUTS */
+/******************** FORM FIELDS ********************/
 
 input[type=text],
-
 select,
-
 textarea {
 
-width:100%;
+  width:100%;
+  padding:13px;
 
-padding:13px;
+  border:1px solid #DFE7E0;
+  border-radius:11px;
 
-border:1px solid #DFE7E0;
+  font-family:inherit;
+  font-size:13px;
 
-border-radius:11px;
+  outline:none;
 
-font-family:inherit;
-
-font-size:13px;
-
-outline:none;
-
-background:#FCFDFC;
-
-color:var(--green);
+  background:#FCFDFC;
+  color:var(--green);
 
 }
-
 
 input:focus,
-
 select:focus,
-
 textarea:focus {
 
-border-color:#3B9661;
-
-box-shadow:0 0 0 3px #3B966115;
+  border-color:#3B9661;
+  box-shadow:0 0 0 3px #176B4515;
 
 }
-
 
 textarea {
 
-min-height:85px;
-
-resize:vertical;
-
-}
-
-
-.input-label {
-
-font-size:12px;
-
-font-weight:700;
-
-display:block;
-
-margin-bottom:9px;
+  min-height:85px;
+  resize:vertical;
 
 }
-
 
 .field {
 
-margin-bottom:17px;
+  margin-top:17px;
+
+}
+
+.input-label {
+
+  display:block;
+
+  font-size:12px;
+  font-weight:bold;
+
+  margin-bottom:9px;
 
 }
 
 
-.field:last-child {
-
-margin-bottom:0;
-
-}
-
-
-/* RATING */
+/******************** RATING ********************/
 
 .rating {
 
-display:flex;
-
-gap:9px;
-
-flex-wrap:wrap;
+  display:flex;
+  gap:10px;
 
 }
 
+.rating div {
+
+  position:relative;
+
+}
 
 .rating input {
 
-position:absolute;
-
-opacity:0;
+  position:absolute;
+  opacity:0;
 
 }
-
 
 .rating label {
 
-width:39px;
+  width:40px;
+  height:40px;
 
-height:39px;
+  display:grid;
+  place-items:center;
 
-border:1px solid #E0E8E1;
+  border:1px solid #E0E8E1;
+  border-radius:10px;
 
-border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
 
-display:grid;
-
-place-items:center;
-
-font-size:13px;
-
-font-weight:800;
-
-cursor:pointer;
+  cursor:pointer;
 
 }
-
 
 .rating input:checked+label {
 
-background:#176B45;
-
-color:white;
-
-border-color:#176B45;
+  background:#176B45;
+  color:white;
+  border-color:#176B45;
 
 }
 
 
-/* CONDITIONAL QUESTIONS */
+/******************** UTILITIES ********************/
 
 .hidden {
 
-display:none;
+  display:none !important;
 
 }
-
-
-.section-title {
-
-font-size:13px;
-
-font-weight:800;
-
-color:#176B45;
-
-margin-bottom:12px;
-
-}
-
-
-/* SUBMIT */
 
 .consent {
 
-display:flex;
+  display:flex;
+  gap:9px;
 
-gap:9px;
+  font-size:11px;
+  color:#65756A;
 
-font-size:11px;
-
-color:#65756A;
-
-line-height:1.6;
-
-margin:17px 0;
+  line-height:1.6;
+  margin:18px 0;
 
 }
-
 
 .consent input {
 
-accent-color:#176B45;
-
-margin-top:3px;
+  accent-color:#176B45;
+  margin-top:3px;
 
 }
 
+
+/******************** SUBMIT BUTTON ********************/
 
 .submit-btn {
 
-width:100%;
+  width:100%;
 
-border:0;
+  border:0;
+  padding:17px;
 
-padding:16px;
+  border-radius:13px;
 
-border-radius:13px;
+  background:linear-gradient(100deg,#176B45,#238553);
 
-background:linear-gradient(100deg,#176B45,#238553);
+  color:white;
 
-color:white;
+  font-size:14px;
+  font-weight:bold;
 
-font-size:14px;
+  cursor:pointer;
 
-font-weight:800;
-
-font-family:inherit;
-
-cursor:pointer;
-
-box-shadow:0 8px 20px #176B4530;
+  box-shadow:0 8px 20px #176B4530;
 
 }
-
 
 .submit-btn:disabled {
 
-opacity:.6;
-
-cursor:wait;
-
-}
-
-
-/* SUCCESS */
-
-.success-screen {
-
-display:none;
-
-text-align:center;
-
-background:white;
-
-padding:40px 23px;
-
-border-radius:20px;
-
-border:1px solid #E5ECE6;
+  opacity:.6;
+  cursor:wait;
 
 }
 
 
-.success-icon {
-
-width:65px;
-
-height:65px;
-
-background:#E7F5EA;
-
-color:#176B45;
-
-border-radius:50%;
-
-display:grid;
-
-place-items:center;
-
-font-size:30px;
-
-margin:0 auto 20px;
-
-}
-
-
-.success-screen h2 {
-
-font-family:'Playfair Display',serif;
-
-font-size:28px;
-
-margin-bottom:12px;
-
-}
-
-
-.success-screen p {
-
-font-size:13px;
-
-color:#718077;
-
-line-height:1.8;
-
-}
-
+/******************** ERROR ********************/
 
 .message {
 
-display:none;
+  display:none;
+  padding:13px;
 
-padding:13px;
+  border-radius:11px;
+  font-size:12px;
 
-border-radius:11px;
-
-font-size:12px;
-
-margin-bottom:12px;
+  margin-bottom:12px;
 
 }
-
 
 .error {
 
-background:#FFF0ED;
-
-color:#A33B2A;
+  background:#FFF0ED;
+  color:#A33B2A;
 
 }
 
+
+/******************** SUCCESS ********************/
+
+.success-screen {
+
+  display:none;
+
+  text-align:center;
+
+  background:white;
+
+  padding:40px 23px;
+
+  border-radius:20px;
+
+  border:1px solid #E5ECE6;
+
+}
+
+.success-icon {
+
+  width:65px;
+  height:65px;
+
+  background:#E7F5EA;
+  color:#176B45;
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  font-size:30px;
+
+  margin:0 auto 20px;
+
+}
+
+.success-screen h2 {
+
+  font-family:Georgia,serif;
+  font-size:28px;
+
+  margin-bottom:12px;
+
+}
+
+.success-screen p {
+
+  font-size:13px;
+  color:#718077;
+  line-height:1.9;
+
+}
+
+
+/******************** FOOTER ********************/
 
 .footer {
 
-text-align:center;
+  text-align:center;
 
-font-size:10px;
+  font-size:10px;
+  color:#859187;
 
-color:#859187;
-
-line-height:1.8;
-
-margin-top:22px;
+  line-height:1.9;
+  margin-top:22px;
 
 }
 
+
+/******************** MOBILE ********************/
 
 @media(max-width:520px) {
 
-.container {
+  .container {
 
-padding:12px 10px 35px;
+    padding:12px 10px 35px;
 
-}
+  }
 
-.hero {
+  .hero {
 
-padding:23px 19px;
+    padding:24px 19px;
 
-}
+  }
 
-.hero h1 {
+  .hero h1 {
 
-font-size:31px;
+    font-size:32px;
 
-}
+  }
 
-.form-card {
+  .form-card {
 
-padding:19px 16px;
+    padding:19px 16px;
 
-}
+  }
 
-.options {
+  .options {
 
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-}
+  }
 
-.intro-title {
+  .intro-title {
 
-font-size:48px;
+    font-size:48px;
 
-}
+  }
 
 }
 
@@ -978,76 +757,51 @@ font-size:48px;
 </head>
 
 
-
 <body>
 
 
-
-<!-- WELCOME INTRO -->
+<!-- WELCOME EXPERIENCE -->
 
 <div class="intro" id="intro">
 
+  <div class="intro-content">
 
-<div class="intro-content">
+    <div class="intro-label">
+      UDS · CAMPUS EXPERIENCE · 2026
+    </div>
 
+    <div class="intro-title">
+      THE BIGGEST
+      <span>CAMPUS COMEDY</span>
+    </div>
 
-<div class="intro-label">
+    <div class="intro-divider"></div>
 
-UDS · CAMPUS EXPERIENCE · 2026
+    <div class="intro-message">
 
-</div>
+      Big laughs. Live music. Unforgettable memories.
 
+      <br>
 
-<div class="intro-title">
+      Before the show, we want to hear from YOU.
 
-THE BIGGEST
+    </div>
 
-<span>CAMPUS COMEDY</span>
+    <div class="intro-sub">
+      YOUR VOICE. OUR EXPERIENCE.
+    </div>
 
-</div>
+    <div class="countdown" id="countdown">
+      WELCOME · 5
+    </div>
 
+  </div>
 
-<div class="intro-divider"></div>
-
-
-<div class="intro-message">
-
-Big laughs. Live music. Unforgettable memories.
-
-<br>
-
-Before the show, we want to hear from YOU.
-
-</div>
-
-
-<div class="intro-sub">
-
-YOUR VOICE. OUR EXPERIENCE.
-
-</div>
-
-
-<div class="countdown" id="countdown">
-
-GETTING THINGS READY · 5
+  <button class="skip" onclick="skipIntro()">
+    SKIP INTRO →
+  </button>
 
 </div>
-
-
-</div>
-
-
-<button class="skip" onclick="skipIntro()">
-
-SKIP INTRO →
-
-</button>
-
-
-</div>
-
-
 
 
 <!-- MAIN WEBSITE -->
@@ -1055,517 +809,414 @@ SKIP INTRO →
 <div class="container" id="mainPage" style="display:none;">
 
 
-
 <header class="hero">
 
+  <div class="hero-small">
+    THE BIGGEST CAMPUS COMEDY · 2026
+  </div>
 
-<div class="hero-small">
+  <h1>
+    Help us make
+    <br>
+    <span>history.</span>
+  </h1>
 
-THE BIGGEST CAMPUS COMEDY · 2026
+  <p>
 
-</div>
+    We want to give you an unforgettable comedy experience.
 
+    Whether you're attending, undecided or not coming,
+    tell us why.
 
-<h1>
+    Your honest feedback matters.
 
-Help us make<br>
+  </p>
 
-<span>history.</span>
+  <div class="event-info">
 
-</h1>
+    <span>27 NOV · TAMALE</span>
 
+    <span>28 NOV · NYANKPALA</span>
 
-<p>
+    <span>2 MINUTES</span>
 
-We want to give you an unforgettable comedy experience.
-
-Whether you're attending, undecided or not coming, tell us why.
-
-Your honest feedback matters.
-
-</p>
-
-
-<div class="event-info">
-
-<span>27 NOV TAMALE</span>
-
-<span>28 NOV NYANKPALA</span>
-
-<span>3 MINUTES</span>
-
-</div>
-
+  </div>
 
 </header>
 
 
-
+<!-- PROGRESS -->
 
 <div class="progress-box">
 
-<span>YOUR FEEDBACK</span>
+  <span>YOUR FEEDBACK</span>
 
-<div class="progress">
+  <div class="progress">
 
-<div class="progress-fill" id="progressFill"></div>
+    <div class="progress-fill" id="progressFill"></div>
+
+  </div>
+
+  <span id="progressText">0%</span>
 
 </div>
-
-<span id="progressText">0%</span>
-
-</div>
-
-
 
 
 <form id="feedbackForm">
-
 
 
 <!-- QUESTION 1 -->
 
 <section class="form-card">
 
+  <div class="question-number">
+    QUESTION 01
+  </div>
 
-<div class="question-number">QUESTION 01</div>
+  <div class="question">
+    Are you coming to the show?
+  </div>
 
+  <div class="description">
+    Be honest. We want to understand your decision.
+  </div>
 
-<div class="question">
+  <div class="options">
 
-Are you coming to the show?
+    <div class="option">
+      <input type="radio" name="status" id="s1" value="Already registered">
+      <label for="s1">I've already registered</label>
+    </div>
 
-</div>
+    <div class="option">
+      <input type="radio" name="status" id="s2" value="Planning to attend">
+      <label for="s2">I'm planning to attend</label>
+    </div>
 
+    <div class="option">
+      <input type="radio" name="status" id="s3" value="Undecided">
+      <label for="s3">I'm still undecided</label>
+    </div>
 
-<div class="description">
+    <div class="option">
+      <input type="radio" name="status" id="s4" value="Not attending">
+      <label for="s4">I'm not attending</label>
+    </div>
 
-Be honest. We want to understand your decision.
-
-</div>
-
-
-<div class="options">
-
-
-<div class="option">
-
-<input type="radio" name="status" id="s1" value="Already registered">
-
-<label for="s1">I've already registered</label>
-
-</div>
-
-
-<div class="option">
-
-<input type="radio" name="status" id="s2" value="Planning to attend">
-
-<label for="s2">I'm planning to attend</label>
-
-</div>
-
-
-<div class="option">
-
-<input type="radio" name="status" id="s3" value="Undecided">
-
-<label for="s3">I'm still undecided</label>
-
-</div>
-
-
-<div class="option">
-
-<input type="radio" name="status" id="s4" value="Not attending">
-
-<label for="s4">I'm not attending</label>
-
-</div>
-
-
-</div>
+  </div>
 
 </section>
-
-
 
 
 <!-- QUESTION 2 -->
 
-<section class="form-card" id="barrierSection">
+<section class="form-card hidden" id="barrierSection">
 
+  <div class="question-number">
+    QUESTION 02
+  </div>
 
-<div class="question-number">QUESTION 02</div>
+  <div class="question">
+    What's stopping you from registering?
+  </div>
 
+  <div class="description">
+    Select the main reason.
+  </div>
 
-<div class="question">
+  <div class="options">
 
-What's stopping you from registering?
+    <div class="option"><input type="radio" name="reason" id="r1" value="Ticket prices are expensive"><label for="r1">Ticket prices are expensive</label></div>
 
-</div>
+    <div class="option"><input type="radio" name="reason" id="r2" value="Waiting to get money"><label for="r2">I'm waiting to get money</label></div>
 
+    <div class="option"><input type="radio" name="reason" id="r3" value="Need more information"><label for="r3">I need more information</label></div>
 
-<div class="description">
+    <div class="option"><input type="radio" name="reason" id="r4" value="Not convinced about value"><label for="r4">Not convinced it's worth the price</label></div>
 
-Choose the main reason. Your answer will help us improve.
+    <div class="option"><input type="radio" name="reason" id="r5" value="Date is inconvenient"><label for="r5">The date is inconvenient</label></div>
 
-</div>
+    <div class="option"><input type="radio" name="reason" id="r6" value="Transport or location"><label for="r6">Transport / location is a challenge</label></div>
 
+    <div class="option"><input type="radio" name="reason" id="r7" value="Performers do not interest me"><label for="r7">The lineup doesn't interest me</label></div>
 
-<div class="options">
+    <div class="option"><input type="radio" name="reason" id="r8" value="Waiting for friends"><label for="r8">I'm waiting for my friends</label></div>
 
+    <div class="option"><input type="radio" name="reason" id="r9" value="Other reasons"><label for="r9">Other reasons</label></div>
 
-<div class="option"><input type="radio" name="reason" id="r1" value="Ticket prices are expensive"><label for="r1">Ticket prices are expensive</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r2" value="Waiting to get money"><label for="r2">I'm waiting to get money</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r3" value="Not enough information"><label for="r3">I need more information</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r4" value="Not convinced about value"><label for="r4">Not convinced it's worth the price</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r5" value="Date is inconvenient"><label for="r5">The date is inconvenient</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r6" value="Transport or location"><label for="r6">Transport / location is a challenge</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r7" value="Performers do not interest me"><label for="r7">The lineup doesn't interest me</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r8" value="Waiting for friends"><label for="r8">I'm waiting for my friends</label></div>
-
-<div class="option"><input type="radio" name="reason" id="r9" value="Other reasons"><label for="r9">Other reasons</label></div>
-
-
-</div>
+  </div>
 
 </section>
-
-
 
 
 <!-- QUESTION 3 -->
 
-<section class="form-card" id="priceSection">
+<section class="form-card hidden" id="priceSection">
 
+  <div class="question-number">
+    QUESTION 03
+  </div>
 
-<div class="question-number">QUESTION 03</div>
+  <div class="question">
+    What do you think about our ticket prices?
+  </div>
 
+  <div class="description">
+    We genuinely want to know your opinion.
+  </div>
 
-<div class="question">
+  <div class="options">
 
-Let's talk about ticket prices.
+    <div class="option"><input type="radio" name="priceOpinion" id="p1" value="Very affordable"><label for="p1">Very affordable</label></div>
 
-</div>
+    <div class="option"><input type="radio" name="priceOpinion" id="p2" value="Fairly affordable"><label for="p2">Fairly affordable</label></div>
 
+    <div class="option"><input type="radio" name="priceOpinion" id="p3" value="A little expensive"><label for="p3">A little expensive</label></div>
 
-<div class="description">
+    <div class="option"><input type="radio" name="priceOpinion" id="p4" value="Too expensive for a student"><label for="p4">Too expensive for a student</label></div>
 
-What is your honest opinion about our ticket prices?
+    <div class="option"><input type="radio" name="priceOpinion" id="p5" value="Not sure"><label for="p5">I haven't decided</label></div>
 
-</div>
+  </div>
 
+  <div class="field">
 
-<div class="options">
+    <label class="input-label" for="affordablePrice">
+      What price would you comfortably pay?
+    </label>
 
+    <select id="affordablePrice">
 
-<div class="option"><input type="radio" name="priceOpinion" id="p1" value="Very affordable"><label for="p1">Very affordable</label></div>
+      <option value="">Select your preferred price</option>
 
-<div class="option"><input type="radio" name="priceOpinion" id="p2" value="Fairly affordable"><label for="p2">Fairly affordable</label></div>
+      <option>GHS 50 or less</option>
 
-<div class="option"><input type="radio" name="priceOpinion" id="p3" value="A little expensive"><label for="p3">A little expensive</label></div>
+      <option>GHS 51–70</option>
 
-<div class="option"><input type="radio" name="priceOpinion" id="p4" value="Too expensive for a student"><label for="p4">Too expensive for a student</label></div>
+      <option>GHS 71–100</option>
 
-<div class="option"><input type="radio" name="priceOpinion" id="p5" value="Not sure"><label for="p5">I haven't decided</label></div>
+      <option>GHS 101–150</option>
 
-</div>
+      <option>GHS 151–250</option>
 
+      <option>Current ticket prices are fine</option>
 
-<div class="field" style="margin-top:18px;">
+    </select>
 
-<label class="input-label" for="affordablePrice">
-
-What price would you comfortably pay?
-
-</label>
-
-
-<select id="affordablePrice">
-
-<option value="">Select your preferred price</option>
-
-<option>GHS 50 or less</option>
-
-<option>GHS 51–70</option>
-
-<option>GHS 71–100</option>
-
-<option>GHS 101–150</option>
-
-<option>GHS 151–250</option>
-
-<option>Current ticket prices are fine</option>
-
-</select>
-
-</div>
+  </div>
 
 </section>
-
-
 
 
 <!-- QUESTION 4 -->
 
 <section class="form-card hidden" id="expectationSection">
 
+  <div class="question-number">
+    QUESTION 04
+  </div>
 
-<div class="question-number">QUESTION 04</div>
+  <div class="question">
+    What are you expecting from the show?
+  </div>
 
+  <div class="description">
+    Select everything you would love to experience.
+  </div>
 
-<div class="question">
+  <div class="options">
 
-What are you expecting from the show?
+    <div class="option"><input type="checkbox" name="expectations" id="e1" value="Non-stop comedy"><label for="e1">Non-stop comedy and laughter</label></div>
 
-</div>
+    <div class="option"><input type="checkbox" name="expectations" id="e2" value="Amazing comedian performances"><label for="e2">Amazing comedian performances</label></div>
 
+    <div class="option"><input type="checkbox" name="expectations" id="e3" value="Live music"><label for="e3">Live music experience</label></div>
 
-<div class="description">
+    <div class="option"><input type="checkbox" name="expectations" id="e4" value="Great atmosphere"><label for="e4">A great atmosphere</label></div>
 
-Select everything you would love to experience.
+    <div class="option"><input type="checkbox" name="expectations" id="e5" value="Fun with friends"><label for="e5">Fun with friends</label></div>
 
-</div>
+    <div class="option"><input type="checkbox" name="expectations" id="e6" value="Excellent organisation"><label for="e6">Excellent organisation and sound</label></div>
 
+    <div class="option"><input type="checkbox" name="expectations" id="e7" value="Unforgettable experience"><label for="e7">An unforgettable experience</label></div>
 
-<div class="options">
-
-
-<div class="option"><input type="checkbox" name="expectations" id="e1" value="Non-stop comedy"><label for="e1">Non-stop comedy and laughter</label></div>
-
-<div class="option"><input type="checkbox" name="expectations" id="e2" value="Amazing comedian performances"><label for="e2">Amazing comedian performances</label></div>
-
-<div class="option"><input type="checkbox" name="expectations" id="e3" value="Live music"><label for="e3">Live music experience</label></div>
-
-<div class="option"><input type="checkbox" name="expectations" id="e4" value="Great atmosphere"><label for="e4">A great atmosphere</label></div>
-
-<div class="option"><input type="checkbox" name="expectations" id="e5" value="Fun with friends"><label for="e5">Fun with friends</label></div>
-
-<div class="option"><input type="checkbox" name="expectations" id="e6" value="Excellent organisation"><label for="e6">Excellent organisation and sound</label></div>
-
-<div class="option"><input type="checkbox" name="expectations" id="e7" value="Unforgettable experience"><label for="e7">An unforgettable experience</label></div>
-
-
-</div>
+  </div>
 
 </section>
-
-
 
 
 <!-- QUESTION 5 -->
 
 <section class="form-card hidden" id="campusSection">
 
+  <div class="question-number">
+    QUESTION 05
+  </div>
 
-<div class="question-number">QUESTION 05</div>
+  <div class="question">
+    Which show would you attend?
+  </div>
 
+  <div class="options">
 
-<div class="question">
+    <div class="option"><input type="radio" name="campus" id="c1" value="Tamale — 27 November"><label for="c1">Tamale · 27 November</label></div>
 
-Which show would you attend?
+    <div class="option"><input type="radio" name="campus" id="c2" value="Nyankpala — 28 November"><label for="c2">Nyankpala · 28 November</label></div>
 
-</div>
+    <div class="option"><input type="radio" name="campus" id="c3" value="Both / Either"><label for="c3">Both / Either one</label></div>
 
+  </div>
 
-<div class="options">
+  <div class="field">
 
+    <label class="input-label" for="ticket">
+      Which ticket are you considering?
+    </label>
 
-<div class="option"><input type="radio" name="campus" id="c1" value="Tamale — 27 November"><label for="c1">Tamale · 27 November</label></div>
+    <select id="ticket">
 
-<div class="option"><input type="radio" name="campus" id="c2" value="Nyankpala — 28 November"><label for="c2">Nyankpala · 28 November</label></div>
+      <option value="">Select ticket category</option>
 
-<div class="option"><input type="radio" name="campus" id="c3" value="Both / Either"><label for="c3">Both / Either one</label></div>
+      <option>Early Bird — GHS 70</option>
 
-</div>
+      <option>Regular — GHS 100</option>
 
+      <option>At the Gate — GHS 150</option>
 
-<div class="field" style="margin-top:17px;">
+      <option>VIP — GHS 250</option>
 
-<label class="input-label" for="ticket">
+    </select>
 
-Which ticket are you considering?
-
-</label>
-
-
-<select id="ticket">
-
-<option value="">Select ticket category</option>
-
-<option>Early Bird — GHS 70</option>
-
-<option>Regular — GHS 100</option>
-
-<option>At the Gate — GHS 150</option>
-
-<option>VIP — GHS 250</option>
-
-</select>
-
-</div>
+  </div>
 
 </section>
-
-
 
 
 <!-- QUESTION 6 -->
 
 <section class="form-card">
 
+  <div class="question-number">
+    QUESTION 06
+  </div>
 
-<div class="question-number">QUESTION 06</div>
+  <div class="question">
+    How did you hear about the show?
+  </div>
 
+  <div class="options">
 
-<div class="question">
+    <div class="option"><input type="radio" name="discovery" id="d1" value="WhatsApp"><label for="d1">WhatsApp</label></div>
 
-How did you hear about the show?
+    <div class="option"><input type="radio" name="discovery" id="d2" value="Instagram"><label for="d2">Instagram</label></div>
 
-</div>
+    <div class="option"><input type="radio" name="discovery" id="d3" value="TikTok"><label for="d3">TikTok</label></div>
 
+    <div class="option"><input type="radio" name="discovery" id="d4" value="Friends"><label for="d4">Friends / classmates</label></div>
 
-<div class="options">
+    <div class="option"><input type="radio" name="discovery" id="d5" value="Campus announcements"><label for="d5">Campus announcements</label></div>
 
+    <div class="option"><input type="radio" name="discovery" id="d6" value="Posters"><label for="d6">Posters / flyers</label></div>
 
-<div class="option"><input type="radio" name="discovery" id="d1" value="WhatsApp"><label for="d1">WhatsApp</label></div>
+    <div class="option"><input type="radio" name="discovery" id="d7" value="Other"><label for="d7">Other</label></div>
 
-<div class="option"><input type="radio" name="discovery" id="d2" value="Instagram"><label for="d2">Instagram</label></div>
-
-<div class="option"><input type="radio" name="discovery" id="d3" value="TikTok"><label for="d3">TikTok</label></div>
-
-<div class="option"><input type="radio" name="discovery" id="d4" value="Friends"><label for="d4">Friends / classmates</label></div>
-
-<div class="option"><input type="radio" name="discovery" id="d5" value="Campus announcements"><label for="d5">Campus announcements</label></div>
-
-<div class="option"><input type="radio" name="discovery" id="d6" value="Posters"><label for="d6">Posters / flyers</label></div>
-
-<div class="option"><input type="radio" name="discovery" id="d7" value="Other"><label for="d7">Other</label></div>
-
-</div>
+  </div>
 
 </section>
-
-
 
 
 <!-- QUESTION 7 -->
 
 <section class="form-card">
 
+  <div class="question-number">
+    QUESTION 07
+  </div>
 
-<div class="question-number">QUESTION 07</div>
+  <div class="question">
+    How interested are you in this show?
+  </div>
 
+  <div class="description">
+    1 = Not interested. 5 = Extremely interested.
+  </div>
 
-<div class="question">
+  <div class="rating">
 
-How interested are you in this show?
+    <div><input type="radio" name="interest" id="i1" value="1"><label for="i1">1</label></div>
 
-</div>
+    <div><input type="radio" name="interest" id="i2" value="2"><label for="i2">2</label></div>
 
+    <div><input type="radio" name="interest" id="i3" value="3"><label for="i3">3</label></div>
 
-<div class="description">
+    <div><input type="radio" name="interest" id="i4" value="4"><label for="i4">4</label></div>
 
-1 means not interested. 5 means extremely interested.
+    <div><input type="radio" name="interest" id="i5" value="5"><label for="i5">5</label></div>
 
-</div>
-
-
-<div class="rating">
-
-
-<div><input type="radio" name="interest" id="i1" value="1"><label for="i1">1</label></div>
-
-<div><input type="radio" name="interest" id="i2" value="2"><label for="i2">2</label></div>
-
-<div><input type="radio" name="interest" id="i3" value="3"><label for="i3">3</label></div>
-
-<div><input type="radio" name="interest" id="i4" value="4"><label for="i4">4</label></div>
-
-<div><input type="radio" name="interest" id="i5" value="5"><label for="i5">5</label></div>
-
-</div>
+  </div>
 
 </section>
-
-
 
 
 <!-- SUGGESTIONS -->
 
 <section class="form-card">
 
+  <div class="question-number">
+    LAST QUESTION
+  </div>
 
-<div class="question-number">LAST QUESTION</div>
+  <div class="question">
+    What would make this event even better?
+  </div>
 
+  <div class="description">
+    Share your suggestions, concerns or ideas. This is optional.
+  </div>
 
-<div class="question">
+  <textarea id="suggestions" placeholder="Share your thoughts..."></textarea>
 
-What would make this event even better?
+  <div class="field">
 
-</div>
+    <label class="input-label" for="name">
+      Your name (Optional)
+    </label>
 
+    <input type="text" id="name" placeholder="Enter your name">
 
-<div class="description">
+  </div>
 
-Any suggestions, concerns or ideas? We'd love to hear them.
+  <div class="field">
 
-</div>
+    <label class="input-label" for="contact">
+      Phone number / Email (Optional)
+    </label>
 
+    <input type="text" id="contact" placeholder="Enter contact details">
 
-<textarea id="suggestions" placeholder="Share your thoughts here..."></textarea>
+  </div>
 
+  <label class="consent">
 
-<div class="field" style="margin-top:16px;">
+    <input type="checkbox" id="consent">
 
-<label class="input-label" for="name">
+    <span>
+      I agree that my responses may be used by the organising team for event planning and audience research.
+    </span>
 
-Your name (Optional)
+  </label>
 
-</label>
+  <!-- HIDDEN ANTI-SPAM FIELD -->
 
-<input type="text" id="name" placeholder="Enter your name">
-
-</div>
-
-
-<div class="field">
-
-<label class="input-label" for="contact">
-
-Phone number / Email (Optional)
-
-</label>
-
-<input type="text" id="contact" placeholder="Enter contact details">
-
-</div>
-
-
-<label class="consent">
-
-<input type="checkbox" id="consent">
-
-<span>
-
-I agree that my responses may be used by the organising team for event planning and audience research.
-
-</span>
-
-</label>
-
+  <input
+    type="text"
+    id="website"
+    autocomplete="off"
+    tabindex="-1"
+    style="position:absolute;left:-9999px;"
+  >
 
 </section>
-
-
 
 
 <div class="message error" id="errorBox"></div>
@@ -1573,432 +1224,365 @@ I agree that my responses may be used by the organising team for event planning 
 
 <button type="submit" class="submit-btn" id="submitBtn">
 
-SUBMIT MY FEEDBACK →
+  SUBMIT MY FEEDBACK →
 
 </button>
 
 
-
 </form>
-
-
 
 
 <!-- SUCCESS SCREEN -->
 
 <div class="success-screen" id="successScreen">
 
+  <div class="success-icon">✓</div>
 
-<div class="success-icon">✓</div>
+  <h2>You're amazing!</h2>
 
+  <p>
 
-<h2>You're amazing!</h2>
+    Thank you for sharing your thoughts.
 
+    Your feedback will help us make
 
-<p>
+    <b>The Biggest Campus Comedy</b>
 
-Thank you for taking the time to share your thoughts.
+    an unforgettable experience.
 
-Your feedback will help us make
+    <br><br>
 
-<b>The Biggest Campus Comedy</b>
+    We hope to see you there!
 
-an unforgettable experience.
-
-<br><br>
-
-We hope to see you there!
-
-</p>
-
+  </p>
 
 </div>
 
 
+<footer class="footer">
 
-<div class="footer">
+  THE BIGGEST CAMPUS COMEDY · 2026
 
-THE BIGGEST CAMPUS COMEDY · 2026
+  <br>
 
-<br>
+  27 NOVEMBER · TAMALE
 
-27 NOVEMBER · TAMALE
+  <br>
 
-<br>
+  28 NOVEMBER · NYANKPALA
 
-28 NOVEMBER · NYANKPALA
+</footer>
+
 
 </div>
-
-
-</div>
-
-
 
 
 <script>
 
+/******************** WELCOME INTRO ********************/
 
-/****************************************************
- WELCOME INTRO
-****************************************************/
+let seconds = 5;
 
 let introTimer;
-
-let seconds=5;
 
 
 function skipIntro() {
 
-clearInterval(introTimer);
+  clearInterval(introTimer);
 
-document.getElementById("intro").classList.add("hide");
+  document.getElementById("intro").classList.add("hide");
 
-document.getElementById("mainPage").style.display="block";
-
-}
-
-
-introTimer=setInterval(()=>{
-
-seconds--;
-
-
-if(seconds<=0){
-
-skipIntro();
-
-}else{
-
-document.getElementById("countdown").textContent=
-
-"GETTING THINGS READY · "+seconds;
-
-}
-
-},1000);
-
-
-
-/****************************************************
- CONDITIONAL QUESTIONS
-****************************************************/
-
-const statusInputs=document.querySelectorAll(
-
-'input[name="status"]'
-
-);
-
-
-function updateQuestions(){
-
-const status=document.querySelector(
-
-'input[name="status"]:checked'
-
-)?.value;
-
-
-const barrier=document.getElementById("barrierSection");
-
-const price=document.getElementById("priceSection");
-
-const expectation=document.getElementById("expectationSection");
-
-const campus=document.getElementById("campusSection");
-
-
-const attending=
-
-status==="Already registered" ||
-
-status==="Planning to attend";
-
-
-const notAttending=
-
-status==="Not attending" ||
-
-status==="Undecided";
-
-
-barrier.classList.toggle("hidden",!notAttending);
-
-price.classList.toggle("hidden",!notAttending);
-
-expectation.classList.toggle("hidden",!attending);
-
-campus.classList.toggle("hidden",!attending);
-
-
-updateProgress();
+  document.getElementById("mainPage").style.display = "block";
 
 }
 
 
-statusInputs.forEach(input=>{
+introTimer = setInterval(function() {
 
-input.addEventListener("change",updateQuestions);
+  seconds--;
+
+  if (seconds <= 0) {
+
+    skipIntro();
+
+  } else {
+
+    document.getElementById("countdown").textContent =
+      "WELCOME · " + seconds;
+
+  }
+
+}, 1000);
+
+
+/******************** CONDITIONAL QUESTIONS ********************/
+
+function updateQuestions() {
+
+  const status = getRadio("status");
+
+  const attending =
+    status === "Already registered" ||
+    status === "Planning to attend";
+
+  const notAttending =
+    status === "Not attending" ||
+    status === "Undecided";
+
+  document.getElementById("barrierSection")
+    .classList.toggle("hidden", !notAttending);
+
+  document.getElementById("priceSection")
+    .classList.toggle("hidden", !notAttending);
+
+  document.getElementById("expectationSection")
+    .classList.toggle("hidden", !attending);
+
+  document.getElementById("campusSection")
+    .classList.toggle("hidden", !attending);
+
+  updateProgress();
+
+}
+
+
+document.querySelectorAll(
+  'input[name="status"]'
+).forEach(function(input) {
+
+  input.addEventListener("change", updateQuestions);
 
 });
 
 
+/******************** FORM HELPERS ********************/
 
-/****************************************************
- PROGRESS INDICATOR
-****************************************************/
+function getRadio(name) {
 
-function updateProgress(){
+  const selected = document.querySelector(
+    'input[name="' + name + '"]:checked'
+  );
 
-const status=!!document.querySelector(
-
-'input[name="status"]:checked'
-
-);
-
-
-const interest=!!document.querySelector(
-
-'input[name="interest"]:checked'
-
-);
-
-
-const consent=document.getElementById("consent").checked;
-
-
-let completed=0;
-
-
-if(status) completed++;
-
-if(interest) completed++;
-
-if(consent) completed++;
-
-
-const percent=Math.round((completed/3)*100);
-
-
-document.getElementById("progressFill").style.width=
-
-percent+"%";
-
-
-document.getElementById("progressText").textContent=
-
-percent+"%";
+  return selected ? selected.value : "";
 
 }
 
 
-document.querySelectorAll("input,select,textarea").forEach(el=>{
+function getChecked(name) {
 
-el.addEventListener("change",updateProgress);
+  return Array.from(
+    document.querySelectorAll(
+      'input[name="' + name + '"]:checked'
+    )
+  ).map(function(el) {
 
-el.addEventListener("input",updateProgress);
+    return el.value;
+
+  });
+
+}
+
+
+/******************** PROGRESS ********************/
+
+function updateProgress() {
+
+  let completed = 0;
+
+  if (getRadio("status")) completed++;
+
+  if (getRadio("interest")) completed++;
+
+  if (document.getElementById("consent").checked) completed++;
+
+  const percent = Math.round(
+    completed / 3 * 100
+  );
+
+  document.getElementById("progressFill")
+    .style.width = percent + "%";
+
+  document.getElementById("progressText")
+    .textContent = percent + "%";
+
+}
+
+
+document.querySelectorAll(
+  "input,select,textarea"
+).forEach(function(el) {
+
+  el.addEventListener("change", updateProgress);
 
 });
 
 
+/******************** ERROR DISPLAY ********************/
 
-/****************************************************
- COLLECT SELECTED CHECKBOXES
-****************************************************/
+function showError(message) {
 
-function getChecked(name){
+  const box = document.getElementById("errorBox");
 
-return [...document.querySelectorAll(
+  box.textContent = message;
 
-`input[name="${name}"]:checked`
+  box.style.display = "block";
 
-)].map(el=>el.value);
-
-}
-
-
-function getRadio(name){
-
-return document.querySelector(
-
-`input[name="${name}"]:checked`
-
-)?.value || "";
+  box.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
 
 }
 
 
-
-/****************************************************
- SUBMIT
-****************************************************/
+/******************** SUBMISSION ********************/
 
 document.getElementById("feedbackForm")
 
-.addEventListener("submit",function(e){
+.addEventListener("submit", function(e) {
 
-e.preventDefault();
+  e.preventDefault();
 
+  const data = {
 
-const data={
+    status: getRadio("status"),
 
-status:getRadio("status"),
+    reason: getRadio("reason"),
 
-reason:getRadio("reason"),
+    priceOpinion: getRadio("priceOpinion"),
 
-priceOpinion:getRadio("priceOpinion"),
+    affordablePrice:
+      document.getElementById("affordablePrice").value,
 
-affordablePrice:document.getElementById("affordablePrice").value,
+    expectations: getChecked("expectations"),
 
-expectations:getChecked("expectations"),
+    campus: getRadio("campus"),
 
-campus:getRadio("campus"),
+    ticket:
+      document.getElementById("ticket").value,
 
-ticket:document.getElementById("ticket").value,
+    discovery: getRadio("discovery"),
 
-discovery:getRadio("discovery"),
+    interest: getRadio("interest"),
 
-interest:getRadio("interest"),
+    suggestions:
+      document.getElementById("suggestions").value,
 
-suggestions:document.getElementById("suggestions").value,
+    name:
+      document.getElementById("name").value,
 
-name:document.getElementById("name").value,
+    contact:
+      document.getElementById("contact").value,
 
-contact:document.getElementById("contact").value,
+    consent:
+      document.getElementById("consent").checked,
 
-consent:document.getElementById("consent").checked,
+    website:
+      document.getElementById("website").value
 
-website:""
+  };
 
-};
 
+  const errorBox = document.getElementById("errorBox");
 
-const error=document.getElementById("errorBox");
+  errorBox.style.display = "none";
 
 
-error.style.display="none";
+  if (!data.status) {
 
+    showError("Please select your attendance decision.");
 
-if(!data.status){
+    return;
 
-showError("Please select your attendance decision.");
+  }
 
-return;
 
-}
+  if (!data.interest) {
 
+    showError("Please rate your interest in the event.");
 
-if(!data.interest){
+    return;
 
-showError("Please rate your interest in the event.");
+  }
 
-return;
 
-}
+  if (!data.consent) {
 
+    showError("Please agree before submitting.");
 
-if(!data.consent){
+    return;
 
-showError("Please agree before submitting your feedback.");
+  }
 
-return;
 
-}
+  if (
+    (
+      data.status === "Not attending" ||
+      data.status === "Undecided"
+    ) &&
+    !data.reason
+  ) {
 
+    showError("Please tell us why you are not registering.");
 
-if(data.status==="Not attending" && !data.reason){
+    return;
 
-showError("Please tell us why you are not attending.");
+  }
 
-return;
 
-}
+  const button = document.getElementById("submitBtn");
 
+  button.disabled = true;
 
-if(data.status==="Undecided" && !data.reason){
+  button.textContent = "SUBMITTING...";
 
-showError("Please tell us what is making you undecided.");
 
-return;
+  google.script.run
 
-}
+    .withSuccessHandler(function(result) {
 
+      if (!result || !result.success) {
 
-const btn=document.getElementById("submitBtn");
+        button.disabled = false;
 
+        button.textContent = "SUBMIT MY FEEDBACK →";
 
-btn.disabled=true;
+        showError("Submission could not be confirmed. Please try again.");
 
-btn.textContent="SUBMITTING...";
+        return;
 
+      }
 
-google.script.run
+      document.getElementById("feedbackForm").style.display = "none";
 
-.withSuccessHandler(function(result){
+      document.querySelector(".progress-box").style.display = "none";
 
-btn.disabled=false;
+      document.getElementById("successScreen").style.display = "block";
 
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
 
-document.getElementById("feedbackForm").style.display="none";
+    })
 
+    .withFailureHandler(function(error) {
 
-document.getElementById("progressFill").style.width="100%";
+      button.disabled = false;
 
+      button.textContent = "SUBMIT MY FEEDBACK →";
 
-document.getElementById("successScreen").style.display="block";
+      showError(
+        error.message || "Something went wrong. Please try again."
+      );
 
+    })
 
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
+    .submitFeedback(data);
 
 });
-
-})
-
-
-.withFailureHandler(function(error){
-
-btn.disabled=false;
-
-btn.textContent="SUBMIT MY FEEDBACK →";
-
-showError(error.message || "Something went wrong. Please try again.");
-
-})
-
-
-.submitFeedback(data);
-
-
-});
-
-
-
-function showError(message){
-
-const box=document.getElementById("errorBox");
-
-box.textContent=message;
-
-box.style.display="block";
-
-box.scrollIntoView({
-
-behavior:"smooth",
-
-block:"center"
-
-});
-
-}
-
 
 </script>
-
 
 </body>
 
